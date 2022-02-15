@@ -25,16 +25,12 @@ You will need a *nix machine with the following things installed;
 
 1. Check out this repo
 2. From the root of the checked-out repo, run `bash generate_wallet.sh NUM_WALLETS` where NUM_WALLLETS is the number of wallets you want to generate. So for example, if you want to make 100 wallets, you sould do `bash generate_wallets.sh 100`
-3. You will see the output telling you each one is done and then an informational message telling you where the files are. The seeds list will be in `output/seeds-[SOME RANDOM NUMBER].txt` and the addresses will be in `output/addresses-[THE SAME RANDOM NUMBER].txt` A number is added to the end of each file incase you want to run the tool more than once.
+3. You will see the output telling you each one is done and then an informational message telling you where the files are. The addresses will be in `output/addresses-[RANDOM NUMBER].txt` A number is added to the end of each file incase you want to run the tool more than once. In the outputs directory there will also be a series of PDFs named `directions-[THE SAME RANDOM NUMBER]-[INDEX].pdf` where INDEX is 1-`n`. In other words, there is one PDF for each wallet.
 4. Using your bitcoin wallet software, send bitcoin to each address in the addresses file to fund all the wallets.
-5. Print out the seeds file. It should print out one seed per page.
-6. Print `n` copies of the directions PDF in the resources/ directory.
-7. Get `n` envelopes and put a seed strip and a copy of the printed directions into each one. Seal them up
-8. Delete the seeds and addresses files.
+5. Print out each PDF `directions` file.
+6. Get `n` envelopes and put a directions printout in each one.
+8. Delete everything in `output`.
 9. Go and hand out some bitcoin!
-
-### Paper-saving tradeoff
-On step (2) above, if you run `SAVE_PAPER=true bash generate_wallet.sh NUM_WALLETS`, it will put many seed phrases on a single page with dotted lined between them. You can cut along the dotted lines to get `n` seed strips, which can then be handed out. You will have more manual labor (cutting the strips out), but if you have a paper cutter, this might be worth the tradeoff to have fewer pages to print. Up to you!
 
 ### Funding all of the wallets using "Send to Many" from Sparrow Wallet
 
