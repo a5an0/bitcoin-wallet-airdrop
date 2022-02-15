@@ -12,7 +12,7 @@ mkdir output
 SEED_FILE=output/seeds-$RUN.txt
 ADDRESS_FILE=output/addresses-$RUN.txt
 
-for i in $(seq 0 $NUM_WALLETS)
+for i in $(seq 1 $NUM_WALLETS)
 do
     # Generate a new seed phease and xpriv
     seed=$(bdk-cli -n bitcoin key generate -e 12)

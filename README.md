@@ -44,7 +44,7 @@ Sparrow wallet has a "Send to Many" feature that can import a CSV of `address, a
 Assuming that the address file is called `output/addresses-1234.txt` the amount you want each recipient to get (IN SATS) is $AMOUNT, and a label for each is $MESSAGE, do:
 
 ``` shell
-for i in $(cat output/addresses-9860.txt); do echo "$i, $AMOUNT, $MESSAGE" >> output/s2m.csv; done
+for i in $(cat output/addresses-1234.txt); do echo "$i, $AMOUNT, $MESSAGE" >> output/s2m.csv; done
 ```
 
 Then, in Sparrow Wallet, click `Tools -> Send to Many`. It will open a window with an empty table in it. Click the `Import CSV` file and navigate to the `output/s2m.csv` file. Sparrow will create a transaction for you that spends $AMOUNT to each address in the csv file. Now you can proceed to sign the transaction as you normally would (using whatever combination of online and offline signers you have for that wallet) and broadcast the transaction.
