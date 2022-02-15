@@ -4,7 +4,7 @@ You might want to go and give Bitcion to a bunch of people who have never had bi
 
 ## Overview
 
-Detailed instructions to follow, but at a high-level, the idea is that you run a script that generates `n` bitcoin wallets (where `n` is the number of people you want to give bitcoin to). The script will output an "addresses file", with a deposit address for each wallet, and then `n` instructions PDFs that contain a QR-encoded private key and instructions on how to import it into bluewallet.
+Detailed instructions to follow, but at a high-level, the idea is that you run a script that generates `n` bitcoin addresses (where `n` is the number of people you want to give bitcoin to). The script will output an "addresses file", with a deposit address for each wallet, and then `n` instructions PDFs that contain a QR-encoded private key and instructions on how to import it into bluewallet.
 
 You use the wallet software of your choice to send bitcoin to each address in the addresses file. I recommend doing this in batches as large as your software will allow to reduce fees and keep the process moving quickly.
 
@@ -24,8 +24,8 @@ You will need a *nix machine with the following things installed;
 ### Generating the wallets and funding addresses
 
 1. Check out this repo
-2. From the root of the checked-out repo, run `bash generate_wallet.sh NUM_WALLETS` where NUM_WALLLETS is the number of wallets you want to generate. So for example, if you want to make 100 wallets, you sould do `bash generate_wallets.sh 100`
-3. You will see the output telling you each one is done and then an informational message telling you where the files are. The addresses will be in `output/addresses-[RANDOM NUMBER].txt` A number is added to the end of each file incase you want to run the tool more than once. In the outputs directory there will also be a series of PDFs named `directions-[THE SAME RANDOM NUMBER]-[INDEX].pdf` where INDEX is 1-`n`. In other words, there is one PDF for each wallet.
+2. From the root of the checked-out repo, run `bash generate_wallet.sh NUM_WALLETS` where NUM_WALLLETS is the number of wallets you want to generate. So for example, if you want to make 100 wallets, you should do `bash generate_wallets.sh 100`
+3. You will see the output telling you each one is done and then an informational message telling you where the files are. The addresses will be in `output/addresses-[RANDOM NUMBER].txt` A number is added to the end of each file incase you want to run the tool more than once. In the outputs directory there will also be a series of PDFs named `directions-[THE SAME RANDOM NUMBER]-[INDEX].pdf` where INDEX is 1-`n`. In other words, there is one PDF for each address.
 4. Using your bitcoin wallet software, send bitcoin to each address in the addresses file to fund all the wallets.
 5. Print out each PDF `directions` file.
 6. Get `n` envelopes and put a directions printout in each one.
@@ -55,3 +55,7 @@ Sparrow is great because it has good support for multisig, good support for many
 ## Other notes
 
 You should only use this code to hand out bitcoin wallets in ways that are consistent with local laws and regulations.
+
+
+## TODOs
+- delete the bitcoin-core wallet that's used to generate addresses

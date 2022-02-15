@@ -11,8 +11,8 @@ RUN=$$
 mkdir output
 ADDRESS_FILE=output/addresses-$RUN.txt
 
-WALLET=bulkgeneratewallet-$RUN
-bitcoin-cli createwallet $WALLET
+WALLET=$PWD/bulkgeneratewallet-$RUN
+bitcoin-cli createwallet $WALLET > /dev/null
 
 for i in $(seq 1 $NUM_WALLETS)
 do
@@ -30,6 +30,9 @@ do
 
     echo "Done with number $i"
 done
+
+bitcoin-cli unloadwallet $WALLET > /dev/null
+rm -rf $WALLET
 
 echo "One address per seed has been written to $ADDRESS_FILE. You can use whatever wallet software you chopose to fund these addresses."
 echo "There is a set of PDF directions for each key in the output directory. A QR code for the private key is embedded in the PDF. Treat the file appropriately"
