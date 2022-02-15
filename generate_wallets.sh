@@ -12,28 +12,20 @@ mkdir output
 SEED_FILE=output/seeds-$RUN.txt
 ADDRESS_FILE=output/addresses-$RUN.txt
 
+WALLET=bulkgeneratewallet-$RUN
+bitcoin-cli createwallet $WALLET
+
 for i in $(seq 1 $NUM_WALLETS)
 do
-    # Generate a new seed phease and xpriv
-    seed=$(bdk-cli -n bitcoin key generate -e 12)
-    mnemonic=$(echo $seed | jq -r .mnemonic)
-    xprv=$(echo $seed | jq -r .xprv)
+    # Generate a new receiving address and get the private key
+    ADDRESS=$(bitcoin-cli -rpcwallet=$WALLET getnewaddress)
+    PRIVKEY=$(bitcoin-cli -rpcwallet=$WALLET dumpprivkey $ADDRESS)
 
-    # create a new wallet and get an address
-    derived_xprv=$(bdk-cli -n bitcoin key derive -x $xprv --path "m/84'/0'/0'/0" | jq -r .xprv)
-    descriptor="wpkh($derived_xprv)"
-    bdk-cli -n bitcoin wallet -w autogen-$RUN-$i --descriptor $descriptor sync > /dev/null
-    ADDRESS=$(bdk-cli -n bitcoin wallet -w autogen-$RUN-$i --descriptor $descriptor get_new_address | jq -r .address)
-
-    # add seed and address to the output lists
-    printf "Wallet Seed\n\n" >> $SEED_FILE
-    echo $mnemonic >> $SEED_FILE
-    if [[ -z "${SAVE_PAPER}" ]]; then
-        printf "\f" >> $SEED_FILE
-    else
-        printf "\n\n==========================================================\n\n" >> $SEED_FILE
-    fi
+    # Add address to the deposits file
     echo "$ADDRESS" >> $ADDRESS_FILE
+
+    # Create a QR code for the privkey to import
+    qrencode -o output/$RUN-$i.png "bitcoin:$PRIVKEY"
 
     echo "Done with number $i"
 done
