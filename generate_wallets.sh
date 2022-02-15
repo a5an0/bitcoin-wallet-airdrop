@@ -25,7 +25,9 @@ do
     echo "$ADDRESS" >> $ADDRESS_FILE
 
     # Create a QR code for the privkey to import
-    qrencode -o output/$RUN-$i.png "bitcoin:$PRIVKEY"
+    qrencode -o output/privkey-qr.png "bitcoin:$PRIVKEY"
+    # render out directions for this wallet
+    markdown-pdf -f Letter -o output/directions-$RUN-$i.pdf -c resources resources/directions.md
 
     echo "Done with number $i"
 done
