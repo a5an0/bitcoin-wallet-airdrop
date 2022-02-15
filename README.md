@@ -19,8 +19,9 @@ In the resources/ directory is a PDF file with detailed instructions on how to t
 ### Required Dependencies
 You will need a *nix machine with the following things installed;
 
-- jq (https://stedolan.github.io/jq/)
-- bdk-cli (https://github.com/bitcoindevkit/bdk-cli#install-bdk-cli)
+- bitcoin-core (doesn't have to be synced, just bitcoin-cli needs to work)
+- qrencode 
+- markdown-pdf (https://www.npmjs.com/package/markdown-pdf)
 
 ### Generating the wallets and funding addresses
 

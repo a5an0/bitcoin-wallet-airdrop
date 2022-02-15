@@ -10,7 +10,7 @@
 ![](images/import-wallet-dialog.jpeg)
 
 4. On the next screen, tap "Scan or import file". It will open the camera. Scan this QR code:
-![private key import](../output/privkey-qr.png | height=300)
+![private key import](../output/privkey-qr.png)
 
 5. You will see a message that the wallet has been successfully imported.
 6. Click the “Plus Button” at the top of the Bluewallet home screen again (like from Step 2)

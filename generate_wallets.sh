@@ -9,7 +9,6 @@ NUM_WALLETS=$1
 RUN=$$
 
 mkdir output
-SEED_FILE=output/seeds-$RUN.txt
 ADDRESS_FILE=output/addresses-$RUN.txt
 
 WALLET=bulkgeneratewallet-$RUN
@@ -32,5 +31,5 @@ do
     echo "Done with number $i"
 done
 
-echo "All done! You should now print out the $SEED_FILE file, cut along each dotted line and you will end up with $NUM_WALLETS seeds that you can hand out"
 echo "One address per seed has been written to $ADDRESS_FILE. You can use whatever wallet software you chopose to fund these addresses."
+echo "There is a set of PDF directions for each key in the output directory. A QR code for the private key is embedded in the PDF. Treat the file appropriately"
