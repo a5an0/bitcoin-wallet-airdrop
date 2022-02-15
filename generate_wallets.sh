@@ -26,9 +26,9 @@ do
     ADDRESS=$(bdk-cli -n bitcoin wallet -w autogen-$RUN-$i --descriptor $descriptor get_new_address | jq -r .address)
 
     # add seed and address to the output lists
-    echo "Wallet Seed" >> $SEED_FILE
+    printf "Wallet Seed\n\n" >> $SEED_FILE
     echo $mnemonic >> $SEED_FILE
-    echo "==========================================================" >> $SEED_FILE
+    printf "\n\n==========================================================\n\n" >> $SEED_FILE
     echo "$ADDRESS" >> $ADDRESS_FILE
 
     echo "Done with number $i"
