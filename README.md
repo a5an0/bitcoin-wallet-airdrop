@@ -13,3 +13,29 @@ The seed file has the bip39 mnemonic seed for each generated wallet, with a dott
 In the resources/ directory is a PDF file with detailed instructions on how to take a seed strip, import it inot bluewallet, and then sweep the funds to a new wallet (so that if you are bad and dont delete the seed file, then the recipient can't have their money stolen by you or someone who gets ahold of your computer or printer). The idea is you print out `n` copies of that PDF, and then put a copy of the directions and a seed strip into `n` envelopes. You now basically have `n` little packets that each have a funded wallet seed and directions on how to import and sweep it. You can now go and hand those out to whomever, depending on your goals.
 
 *Note: Right now there are only directions for bluewallet on ios. If you feel like writing up android directions, send me a PR.*
+
+## Detailed setup instructions
+
+### Required Dependencies
+You will need a *nix machine with the following things installed;
+
+- jq (https://stedolan.github.io/jq/)
+- bdk-cli (https://github.com/bitcoindevkit/bdk-cli#install-bdk-cli)
+
+### Generating the wallets and funding addresses
+
+1. Check out this repo
+2. From the root of the checked-out repo, run `bash generate_wallet.sh NUM_WALLETS` where NUM_WALLLETS is the number of wallets you want to generate. So for example, if you want to make 100 wallets, you sould do `bash generate_wallets.sh 100`
+3. You will see the output telling you each one is done and then an informational message telling you where the files are. The seeds list will be in `output/seeds-[SOME RANDOM NUMBER].txt` and the addresses will be in `output/addresses-[THE SAME RANDOM NUMBER].txt` A number is added to the end of each file incase you want to run the tool more than once.
+4. Using your bitcoin wallet software, send bitcoin to each address in the addresses file to fund all the wallets.
+5. Print out the seeds file. There is a seperator between each seed to make it easy to cut along. Cut each one to end up with `n` strips.
+6. Print `n` copies of the directions PDF in the resources/ directory.
+7. Get `n` envelopes and put a seed strip and a copy of the printed directions into each one. Seal them up
+8. Delete the seeds and addresses files.
+9. Go and hand out some bitcoin!
+
+### Some other things you may wish to do if you are so inclined
+
+- Run the generation script on a laptop booted into a live linux distro like tails
+- Destroy the laptop and printer after you're done
+- Consider physical opsec (Wear gloves, etc.)
