@@ -4,13 +4,11 @@ You might want to go and give Bitcion to a bunch of people who have never had bi
 
 ## Overview
 
-Detailed instructions to follow, but at a high-level, the idea is that you run a script that generates `n` bitcoin wallets (where `n` is the number of people you want to give bitcoin to). The script will output two files: one is a "seed" file, the other is an "addresses" file.
+Detailed instructions to follow, but at a high-level, the idea is that you run a script that generates `n` bitcoin wallets (where `n` is the number of people you want to give bitcoin to). The script will output an "addresses file", with a deposit address for each wallet, and then `n` instructions PDFs that contain a QR-encoded private key and instructions on how to import it into bluewallet.
 
-The addresses file has a deposit address for each generated wallet. You use the wallet software of your choice to send bitcoin to each address in that file. I recommend doing this in batches as large as your software will allow to reduce fees and keep the process moving quickly.
+You use the wallet software of your choice to send bitcoin to each address in the addresses file. I recommend doing this in batches as large as your software will allow to reduce fees and keep the process moving quickly.
 
-The seed file has the bip39 mnemonic seed for each generated wallet, with one seed per page. You print that file out. You will end up with `n` "seed pages", where each page has a seed to a wallet that you deposited bitcoin on.
-
-In the resources/ directory is a PDF file with detailed instructions on how to take a seed page, import it into bluewallet, and then sweep the funds to a new wallet (so that if you are bad and dont delete the seed file, then the recipient can't have their money stolen by you or someone who gets ahold of your computer or printer). The idea is you print out `n` copies of that PDF, and then put a copy of the directions and a seed page into `n` envelopes. You now basically have `n` little packets that each have a funded wallet seed and directions on how to import and sweep it. You can now go and hand those out to whomever, depending on your goals.
+Each directions PDF has detailed step-by-step instructions (with screenshots!) on how to import the private key into bluewallet and how to sweep the funds into a new wallet. You print out each one of these, put each in a sealed envelope, and then go hand out bitcoin!
 
 *Note: Right now there are only directions for bluewallet on ios. If you feel like writing up android directions, send me a PR.*
 
@@ -20,7 +18,7 @@ In the resources/ directory is a PDF file with detailed instructions on how to t
 You will need a *nix machine with the following things installed;
 
 - bitcoin-core (doesn't have to be synced, just bitcoin-cli needs to work)
-- qrencode 
+- qrencode
 - markdown-pdf (https://www.npmjs.com/package/markdown-pdf)
 
 ### Generating the wallets and funding addresses
