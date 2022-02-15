@@ -15,7 +15,7 @@ ADDRESS_FILE=output/addresses-$RUN.txt
 for i in $(seq 0 $NUM_WALLETS)
 do
     # Generate a new seed phease and xpriv
-    seed=$(bdk-cli -n bitcoin key generate)
+    seed=$(bdk-cli -n bitcoin key generate -e 12)
     mnemonic=$(echo $seed | jq -r .mnemonic)
     xprv=$(echo $seed | jq -r .xprv)
 
