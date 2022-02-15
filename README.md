@@ -41,4 +41,8 @@ On step (2) above, if you run `SAVE_PAPER=true bash generate_wallet.sh NUM_WALLE
 
 - Run the generation script on a laptop booted into a live linux distro like tails
 - Destroy the laptop and printer after you're done
-- Consider physical opsec (Wear gloves, etc.)
+
+
+## Other notes
+
+You should only use this code to hand out bitcoin wallets in ways that are consistent with local laws and regulations.
