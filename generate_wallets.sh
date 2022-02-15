@@ -28,7 +28,11 @@ do
     # add seed and address to the output lists
     printf "Wallet Seed\n\n" >> $SEED_FILE
     echo $mnemonic >> $SEED_FILE
-    printf "\n\n==========================================================\n\n" >> $SEED_FILE
+    if [[ -z "${SAVE_PAPER}" ]]; then
+        printf "\f" >> $SEED_FILE
+    else
+        printf "\n\n==========================================================\n\n" >> $SEED_FILE
+    fi
     echo "$ADDRESS" >> $ADDRESS_FILE
 
     echo "Done with number $i"
