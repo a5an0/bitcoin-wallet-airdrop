@@ -34,7 +34,7 @@ You will need a *nix machine with the following things installed;
 8. Delete the seeds and addresses files.
 9. Go and hand out some bitcoin!
 
-### Some other things you may wish to do if you are so inclined
+### Some other things you may wish to do if you are so inclined, depending on usecase
 
 - Run the generation script on a laptop booted into a live linux distro like tails
 - Destroy the laptop and printer after you're done
