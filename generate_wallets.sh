@@ -17,7 +17,7 @@ bitcoin-cli createwallet $WALLET > /dev/null
 for i in $(seq 1 $NUM_WALLETS)
 do
     # Generate a new receiving address and get the private key
-    ADDRESS=$(bitcoin-cli -rpcwallet=$WALLET getnewaddress null bech32)
+    ADDRESS=$(bitcoin-cli -rpcwallet=$WALLET getnewaddress)
     PRIVKEY=$(bitcoin-cli -rpcwallet=$WALLET dumpprivkey $ADDRESS)
 
     # Add address to the deposits file
@@ -32,7 +32,7 @@ do
     if [[ ${BACKUP_KEYS} ]]; then
       echo "$ADDRESS, $PRIVKEY" >> output/keybackup-$RUN.txt
     fi
-
+    rm output/privkey-qr.png
     echo "Done with number $i"
 done
 
