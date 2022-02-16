@@ -19,7 +19,9 @@ You will need a *nix machine with the following things installed;
 
 - bitcoin-core (doesn't have to be synced, just bitcoin-cli needs to work)
 - qrencode
-- markdown-pdf (https://www.npmjs.com/package/markdown-pdf)
+- mdpdf (https://github.com/BlueHatbRit/mdpdf)
+
+If you are running Ubuntu (or an Ubuntu-compatible distro), there is a setup script that will install all the necessary dependencies for you.
 
 ### Generating the wallets and funding addresses
 
