@@ -40,7 +40,15 @@ do
     sed -i.bak "s/<!-- ID FOR DISTRIBUTION -->/Packet Number: $RUN-$i/g" build/directions.md
 
     # render out directions for this wallet
-    mdpdf --format=Letter build/directions.md
+    # The PDF renderer uses a headless chromium process to render markdown. Sometime that thing fails for whatever reason
+    # So if it's not successful, we're just going to retry until it works
+    while true; do
+      mdpdf --format=Letter build/directions.md
+      if [ $? -eq 0 ]; then
+        break
+      fi
+      echo "retrying PDF render for number $i"
+    done
     mv build/directions.pdf output/directions-$RUN-$i.pdf
 
     # Write the payout CSV if payout amount is provided
