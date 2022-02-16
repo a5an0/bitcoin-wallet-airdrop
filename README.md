@@ -15,7 +15,7 @@ Each directional PDF has detailed step-by-step instructions (with screenshots!) 
 ## Detailed setup instructions
 
 ### Required Equipment and Dependencies
-You will need
+You will need:
 1. A *nix machine with the following software installed;
 
 - bitcoin-core (doesn't have to be synced, just bitcoin-cli needs to work)
