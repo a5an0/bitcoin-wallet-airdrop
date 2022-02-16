@@ -2,7 +2,7 @@
 
 1. Open the App Store and search for Bluewallet. 
 You can scan this qrcode to go directly to Bluewallet :\
-![](qrcodeb-bw-ios.png)\
+![](images/qrcodeb-bw-ios.png)\
 This is what the app icon looks like : \
 ![](images/appstore.jpeg)\
 Install the app. 
