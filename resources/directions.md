@@ -1,8 +1,12 @@
 # How to import Bitcoin into your own wallet (iOS)
 <!-- ID FOR DISTRIBUTION -->
 
-1. Open the App Store and search for Bluewallet. Download the app. This is what the app icon looks like: 
-![](images/appstore.jpeg)
+1. Open the App Store and search for Bluewallet. 
+You can scan this qrcode to go directly to Bluewallet :\
+![](images/qrcodeb-bw-ios.png)\
+This is what the app icon looks like : \
+![](images/appstore.jpeg)\
+Install the app. 
 
 2. Open the Bluewallet App. In the top-right corner there is a Plus button. Hit it 
 ![](images/wallet-plus.jpeg)
