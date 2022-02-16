@@ -25,7 +25,7 @@
 ![](images/select-address.jpeg)
 12. Close the “Receive” screen by tapping the X in the top-right corner, then go back to the wallets home screen by tapping the < in the top left corner.
 13. Tap the blue rectangle for the Imported wallet to open it (the balance shown on the wallet may be different from what is displayed in the screenshot).
-![](images/mywallet-select.jpeg)
+![](images/select-import.jpeg)
 14. At the bottom of the screen, click the “Send” button.
 15. Tap where it says “0 BTC” and it will open a number entry keyboard. Just above the number “1” it will show the total balance of the imported wallet. Tap that. It will ask if you want to “Use full balance”. Tap Ok. The amount will now read “MAX”
 ![](images/amount-select.jpeg) ![](images/full-balance-confirm.jpeg)
