@@ -24,13 +24,14 @@ You will need a *nix machine with the following things installed;
 ### Generating the wallets and funding addresses
 
 1. Check out this repo
-2. From the root of the checked-out repo, run `bash generate_wallet.sh NUM_WALLETS` where NUM_WALLLETS is the number of wallets you want to generate. So for example, if you want to make 100 wallets, you should do `bash generate_wallets.sh 100`
-3. You will see the output telling you each one is done and then an informational message telling you where the files are. The addresses will be in `output/addresses-[RANDOM NUMBER].txt` A number is added to the end of each file incase you want to run the tool more than once. In the outputs directory there will also be a series of PDFs named `directions-[THE SAME RANDOM NUMBER]-[INDEX].pdf` where INDEX is 1-`n`. In other words, there is one PDF for each address.
-4. Using your bitcoin wallet software, send bitcoin to each address in the addresses file to fund all the wallets.
-5. Print out each PDF `directions` file.
-6. Get `n` envelopes and put a directions printout in each one.
-7. Delete everything in `output`.
-8. Go and hand out some bitcoin!
+2. If you are running ubuntu, you can do `sudo bash setup.sh` to download and install the dependencies. Then do `nohup bitcoind >/dev/null &` to start bitcoind in the background.
+3. From the root of the checked-out repo, run `bash generate_wallet.sh NUM_WALLETS` where NUM_WALLLETS is the number of wallets you want to generate. So for example, if you want to make 100 wallets, you should do `bash generate_wallets.sh 100`
+4. You will see the output telling you each one is done and then an informational message telling you where the files are. The addresses will be in `output/addresses-[RANDOM NUMBER].txt` A number is added to the end of each file incase you want to run the tool more than once. In the outputs directory there will also be a series of PDFs named `directions-[THE SAME RANDOM NUMBER]-[INDEX].pdf` where INDEX is 1-`n`. In other words, there is one PDF for each address.
+5. Using your bitcoin wallet software, send bitcoin to each address in the addresses file to fund all the wallets.
+6. Print out each PDF `directions` file.
+7. Get `n` envelopes and put a directions printout in each one.
+8. Delete everything in `output`.
+9. Go and hand out some bitcoin!
 
 #### Backing up privkeys/addresses
 

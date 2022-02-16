@@ -10,7 +10,7 @@
 ![](images/import-wallet-dialog.jpeg)
 
 4. On the next screen, tap "Scan or import file". It will open the camera. Scan this QR code:
-![private key import](../output/privkey-qr.png)
+![private key import](privkey-qr.png)
 If you have trouble with the QR Code, you can also type this in the import field:
 INSERT_PRIVKEY_HERE
 

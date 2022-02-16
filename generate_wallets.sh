@@ -8,6 +8,8 @@ fi
 NUM_WALLETS=$1
 RUN=$$
 
+mkdir build
+cp -r resources/images build/
 mkdir output
 ADDRESS_FILE=output/addresses-$RUN.txt
 
@@ -24,24 +26,26 @@ do
     echo "$ADDRESS" >> $ADDRESS_FILE
 
     # Create a QR code for the privkey to import
-    qrencode -o output/privkey-qr.png "bitcoin:$PRIVKEY"
+    qrencode -o build/privkey-qr.png "bitcoin:$PRIVKEY"
     # put privkey into the template
-    sed -e "s/INSERT_PRIVKEY_HERE/$PRIVKEY/" resources/directions.md > output/directions.md
+    sed -e "s/INSERT_PRIVKEY_HERE/$PRIVKEY/" resources/directions.md > build/directions.md
     # render out directions for this wallet
-    markdown-pdf -f Letter -o output/directions-$RUN-$i.pdf -c resources output/directions.md
+    mdpdf --format=Letter build/directions.md
+    mv build/directions.pdf output/directions-$RUN-$i.pdf
 
     # write a backup file of addresses and keys if that option is set
     if [[ ${BACKUP_KEYS} ]]; then
       echo "$ADDRESS, $PRIVKEY" >> output/keybackup-$RUN.txt
     fi
     # Cleanup
-    rm output/privkey-qr.png
-    rm output/directions.md
+    rm build/privkey-qr.png
+    rm build/directions.md
     echo "Done with number $i"
 done
 
 bitcoin-cli unloadwallet $WALLET > /dev/null
 rm -rf $WALLET
+rm -rf build
 
 echo "One address per seed has been written to $ADDRESS_FILE. You can use whatever wallet software you chopose to fund these addresses."
 echo "There is a set of PDF directions for each key in the output directory. A QR code for the private key is embedded in the PDF. Treat the file appropriately"
