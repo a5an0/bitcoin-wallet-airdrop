@@ -15,4 +15,7 @@ tar xvzf bitcoin-22.0-x86_64-linux-gnu.tar.gz
 chmod +x bitcoin-22.0/bin/*
 sudo mv bitcoin-22.0/bin/{bitcoind,bitcoin-cli} /usr/local/bin/
 
+#Disable local device networking prior to generating seed
+nmcli networking off
+
 rm -rf bitcoin-22.0*
