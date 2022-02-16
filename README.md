@@ -41,11 +41,7 @@ If you are running Ubuntu (or an Ubuntu-compatible distro), there is a setup scr
 
 Sparrow wallet has a "Send to Many" feature that can import a CSV of `address, amount, label` and set up a large many-output transaction. This means that you can take the address-file that you generated, and fund the addresses in batches rather than one at a time.
 
-Assuming that the address file is called `output/addresses-1234.txt` the amount you want each recipient to get (IN SATS) is $AMOUNT, and a label for each is $MESSAGE, do:
-
-``` shell
-for i in $(cat output/addresses-1234.txt); do echo "$i, $AMOUNT, $MESSAGE" >> output/s2m.csv; done
-```
+When you run `generate_wallets.sh`, just pass it a second parameter with the **total** amount that you want to pay out across all the wallets **in sats**. The script will divide that number by the number of wallets (it's integer math, so doesn't handle remainders) and then will export a CSV file in  the output directory with a line for each address, the payout amount, and the ID number of the address (which matches an ID put into the directions).
 
 Then, in Sparrow Wallet, click `Tools -> Send to Many`. It will open a window with an empty table in it. Click the `Import CSV` file and navigate to the `output/s2m.csv` file. Sparrow will create a transaction for you that spends $AMOUNT to each address in the csv file. Now you can proceed to sign the transaction as you normally would (using whatever combination of online and offline signers you have for that wallet) and broadcast the transaction.
 
