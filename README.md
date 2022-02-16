@@ -64,3 +64,31 @@ Sparrow is great because it has good support for multisig, good support for many
 ## Other notes
 
 You should only use this code to hand out bitcoin wallets in ways that are consistent with local laws and regulations.
+
+## Other things that should be added
+
+*If any of this sounds interesting to you, PR's welcome!*
+
+- Add some "you have bitcoin. now what?" documentation
+
+## Frequently Asked Questions
+
+#### Why hand out something physical? Why not just have everyone install a bitcoin wallet and then just do an on-chain transfer on the spot?
+A couple of reasons: 
+1. It allows you to parallelize the whole process and make it asynchronous. If you have volunteers/aid workers have to 
+walk every recipient through downloading and installing a wallet, setting it up, and then doing an onchain transfer, it means
+that your distribution is rate-limited by the rate at which individual workers can go through that process. If instead, you
+give people really detailed instructions that they can follow themselves at their own pace and then provide 1:1 help with people
+who get stuck, then you can distribute funds to more people faster with fewer workers. 
+2. Related to (1): In my experience, aid distribution usually ends up happening in one of two ways: you send workers "door-to-door" through a community,
+or you have a centralized distribution center (either a kitchen or something that looks like a food bank). In those scenarios, I think being able to hand someone
+a thing to take with them (in the supply-pickup scenario) or keep when you leave (in the door-to-door) scenario is going to be more effective than asking people
+to wait in line for someone to get them bitcoin. Instead, someone can take directions and a privkey with them, set it up, and come back if they need help with it.
+3. Provides a mechanism to break the distribution pot into pre-defined denominations and then have non-technical aid workers distribute them in managed ways. 
+It's very simple (for example) to tell a volunteer working at a food bank "give one of these to each family who comes in, limit one per family". Also makes it easy to 
+control how many wallets each worker has access to and handle things like replenishment without actual onchain shuffles of funds. 
+
+#### Yeah, ok. But wouldn't it just be easier to hand out flyers telling people to install some bitcoin app and then if they do it, come in and quickly get funds?
+Maybe! So far this repo is mostly text, some screen shots, and ~50 lines of shell :)
+I'm also exploring things like Hexawallet gift codes, lnurl-w and/or bolt12 offers, and other options. 
+If you have ideas for better methods, feel free to cut an issue or submit a PR, would love to hear your perspective! 
