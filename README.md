@@ -29,8 +29,14 @@ You will need a *nix machine with the following things installed;
 4. Using your bitcoin wallet software, send bitcoin to each address in the addresses file to fund all the wallets.
 5. Print out each PDF `directions` file.
 6. Get `n` envelopes and put a directions printout in each one.
-8. Delete everything in `output`.
-9. Go and hand out some bitcoin!
+7. Delete everything in `output`.
+8. Go and hand out some bitcoin!
+
+#### Backing up privkeys/addresses
+
+If you set the `BACKUP_KEYS` environment variable to anything, then the `generate_wallet.sh` script will save a file where each line is an address and the associated private key.
+This can be useful for testing (so you don't have to qr-scan a bunch of PDFs) or in cases where you want to offer recovery of a destroyed document.
+**SUPER IMPORTANT**: This is a single file that has all the keys. So if you plan on persisting it after wallets are funded, you will need additional controls (technical, procedural, depends on your usecase) to ensure the security of this file. That's why it's an option you need to turn on and not the default.
 
 ### Funding all of the wallets using "Send to Many" from Sparrow Wallet
 
@@ -55,7 +61,3 @@ Sparrow is great because it has good support for multisig, good support for many
 ## Other notes
 
 You should only use this code to hand out bitcoin wallets in ways that are consistent with local laws and regulations.
-
-
-## TODOs
-- delete the bitcoin-core wallet that's used to generate addresses

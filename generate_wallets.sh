@@ -28,6 +28,11 @@ do
     # render out directions for this wallet
     markdown-pdf -f Letter -o output/directions-$RUN-$i.pdf -c resources resources/directions.md
 
+    # write a backup file of addresses and keys if that option is set
+    if [[ ${BACKUP_KEYS} ]]; then
+      echo "$ADDRESS, $PRIVKEY" >> output/keybackup-$RUN.txt
+    fi
+
     echo "Done with number $i"
 done
 
@@ -36,3 +41,6 @@ rm -rf $WALLET
 
 echo "One address per seed has been written to $ADDRESS_FILE. You can use whatever wallet software you chopose to fund these addresses."
 echo "There is a set of PDF directions for each key in the output directory. A QR code for the private key is embedded in the PDF. Treat the file appropriately"
+if [[ ${BACKUP_KEYS} ]]; then
+  echo "There is a backup file with each address and privkey at output/keybackup-$RUN.txt"
+fi
