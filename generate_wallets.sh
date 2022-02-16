@@ -25,14 +25,18 @@ do
 
     # Create a QR code for the privkey to import
     qrencode -o output/privkey-qr.png "bitcoin:$PRIVKEY"
+    # put privkey into the template
+    sed -e "s/INSERT_PRIVKEY_HERE/$PRIVKEY/" resources/directions.md > output/directions.md
     # render out directions for this wallet
-    markdown-pdf -f Letter -o output/directions-$RUN-$i.pdf -c resources resources/directions.md
+    markdown-pdf -f Letter -o output/directions-$RUN-$i.pdf -c resources output/directions.md
 
     # write a backup file of addresses and keys if that option is set
     if [[ ${BACKUP_KEYS} ]]; then
       echo "$ADDRESS, $PRIVKEY" >> output/keybackup-$RUN.txt
     fi
+    # Cleanup
     rm output/privkey-qr.png
+    rm output/directions.md
     echo "Done with number $i"
 done
 
