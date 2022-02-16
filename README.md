@@ -14,8 +14,9 @@ Each directional PDF has detailed step-by-step instructions (with screenshots!) 
 
 ## Detailed setup instructions
 
-### Required Dependencies
-You will need a *nix machine with the following things installed;
+### Required Equipment and Dependencies
+You will need:
+1. A *nix machine with the following software installed;
 
 - bitcoin-core (doesn't have to be synced, just bitcoin-cli needs to work)
 - qrencode
@@ -23,6 +24,11 @@ You will need a *nix machine with the following things installed;
 - poppler (https://poppler.freedesktop.org)
 
 If you are running Ubuntu (or an Ubuntu-compatible distro), the setup script will install all the necessary dependencies for you.
+
+2. A printer capable of a hard wired USB connection.
+
+3. One envelope for every wallet you wish to create. 
+
 
 ### Generating the wallets and funding addresses
 
