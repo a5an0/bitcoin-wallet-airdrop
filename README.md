@@ -92,3 +92,23 @@ control how many wallets each worker has access to and handle things like replen
 Maybe! So far this repo is mostly text, some screen shots, and ~50 lines of shell :)
 I'm also exploring things like Hexawallet gift codes, lnurl-w and/or bolt12 offers, and other options. 
 If you have ideas for better methods, feel free to cut an issue or submit a PR, would love to hear your perspective! 
+
+#### What are some other options to explore, other than paper wallets?
+I think this whole space is ripe for exploration and innovation. I'd love thoughts and feedback from other folks! 
+Some things that are on my list to try out for this problem:
+
+- Sats Card (https://getsatscard.com) - This is an appealing option because it works with mobile devices (over NFC, unlike an opendime), you can back up the keys to mitigate a loss scenario, it's still a physical token that's easy to hand out in a distribution center or door-to-door.
+A few questions that come to mind: 
+  - what would a process look like (both for software and from a people-and-workflow) to bulk-load lots of these? 
+  - Is there a practical limit on production capacity?
+  - Do we want to back-up keys in case of loss (I think so)? What's a good process for that?
+
+- Hexawallet gift codes (https://hexawallet.io/faq/) - Looks interesting because it's just a software code, which seems like it would make it easy to recover unspent funds without an elaborate backup setup, and doesn't require purchasing, transporting, and storing a lot of physical devices. Some questions that come to mind:
+  - How much custodial risk is there with unclaimed funds? Is there some amount of bitcoin that's just too much to trust spread across these codes? I think that once a gift code has been claimed, its now non-custodial. Is that the case?
+  - Is there a bulk creation mechanism, or would it make more sense to do it synchronously at distribution time? If its the latter, then there might be some liquidity management processes to be put in place to not plonk too big a stack onto individual workers phones.
+  - Are there any geographic restrictions?
+
+- Paper wallets but with LNURLw or Bolt12 withdrawl offers - Looks interesting because we can go straight to lightning, can do bulk loading
+  - Whats the best wallet to onboard people to? Does Muun support bolt12 (I dont think so)? Breez does a good job with lnurl, but is still in beta. Trying to get a ton of people through a Testflight install could be a challenge
+  - Need to make sure that there are either enough ways for people to spend their lightning (maybe more focus on p2p) or have completely invisible swaps (thus muun or breez)
+  - For lnurl, need to host a webserver somewhere. That's additional infra that has to be deployed, secured, maintained. ideally that process is turnkey.
